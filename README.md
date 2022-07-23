@@ -1,3 +1,7 @@
+[![PHP version](https://img.shields.io/badge/php-8.0+-787cb5?logo=php)](https://github.com/jbroutier/icao24-utils)
+[![License](https://img.shields.io/github/license/jbroutier/icao24-utils)](https://github.com/jbroutier/icao24-utils/blob/main/LICENSE)
+[![Packagist](https://img.shields.io/packagist/v/jbroutier/icao24-utils)](https://packagist.org/packages/jbroutier/icao24-utils)
+
 # ICAO24 utils
 
 A set of PHP utility functions to work with aircraft ICAO 24-bit addresses.
