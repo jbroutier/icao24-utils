@@ -1,7 +1,7 @@
 {
     "name": "jbroutier/icao24-utils",
     "description": "A set of PHP utility functions to work with aircraft ICAO 24-bit addresses.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "license": "MIT",
     "authors": [
