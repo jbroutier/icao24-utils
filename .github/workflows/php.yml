@@ -1,0 +1,67 @@
+name: PHP
+
+on: [ push, pull_request ]
+
+jobs:
+    static-analysis:
+        name: Static analysis
+        runs-on: ubuntu-22.04
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v2
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.1'
+                    ini-values: memory_limit=1G
+
+            -   name: Get Composer cache directory
+                id: composer-cache-dir
+                run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            -   name: Cache dependencies
+                id: composer-cache
+                uses: actions/cache@v2
+                with:
+                    path: ${{ steps.composer-cache-dir.outputs.dir }}
+                    key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: ${{ runner.os }}-composer-
+
+            -   name: Install dependencies
+                run: composer install --prefer-dist --no-progress
+
+            -   name: Run static analysis
+                run: composer run phpstan
+
+    unit-tests:
+        name: Unit tests
+        runs-on: ubuntu-22.04
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v2
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.1'
+                    ini-values: memory_limit=1G
+                    coverage: xdebug
+
+            -   name: Get Composer cache directory
+                id: composer-cache-dir
+                run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            -   name: Cache dependencies
+                id: composer-cache
+                uses: actions/cache@v2
+                with:
+                    path: ${{ steps.composer-cache-dir.outputs.dir }}
+                    key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: ${{ runner.os }}-composer-
+
+            -   name: Install dependencies
+                run: composer install --prefer-dist --no-progress
+
+            -   name: Run unit tests
+                run: composer run phpunit
