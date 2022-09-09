@@ -32,6 +32,7 @@
     },
     "scripts": {
         "phpstan": "vendor/bin/phpstan analyse --memory-limit 1G",
-        "phpunit": "vendor/bin/phpunit --testsuite=unit --testdox"
+        "tests:all": "vendor/bin/phpunit --testdox --coverage-html coverage",
+        "tests:unit": "vendor/bin/phpunit --testsuite=unit --testdox --coverage-clover coverage-unit.xml"
     }
 }
