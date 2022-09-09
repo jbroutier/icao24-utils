@@ -1,3 +1,5 @@
+[![PHP](https://github.com/jbroutier/icao24-utils/actions/workflows/php.yml/badge.svg)](https://github.com/jbroutier/icao24-utils/actions/workflows/php.yml)
+[![codecov](https://codecov.io/gh/jbroutier/icao24-utils/branch/main/graph/badge.svg?token=6G9R14FGBG)](https://codecov.io/gh/jbroutier/icao24-utils)
 [![PHP version](https://img.shields.io/badge/php-8.0+-787cb5?logo=php)](https://github.com/jbroutier/icao24-utils)
 [![License](https://img.shields.io/github/license/jbroutier/icao24-utils)](https://github.com/jbroutier/icao24-utils/blob/main/LICENSE)
 [![Packagist](https://img.shields.io/packagist/v/jbroutier/icao24-utils)](https://packagist.org/packages/jbroutier/icao24-utils)
